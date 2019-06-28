@@ -8,7 +8,7 @@ var url = 'mongodb://10.0.0.3:27017/parkers';
 
 var resultArray = [];
 var start= 0;
-var end= 4;
+var end= 5;
 var done= false;
 
 /* GET home page. */
@@ -21,9 +21,9 @@ router.get('/get-first-five', function(req, res, next) {
     assert.equal(null, err);
     resultArray = [];
     start = 0;
-    end = 4;
+    end = 5;
     done = false;
-    db.collection('data').find()
+    db.collection('data').find().sort({$natural: -1})
     .stream().on('data', function(doc){
       resultArray.push(doc);
     }).on('end', function(){
@@ -39,15 +39,15 @@ router.get('/next-five', function(req, res, next) {
 
 
 function getFirstFiveDocuments(res){
-  if(end < resultArray.length){
+  if(end <= resultArray.length){
     res.render('index', {items: resultArray.slice(start,end)});
     start = end;
     end += 5;
   }else if(!done && resultArray.length > 0){
-    res.render('index', {items: resultArray.slice(start, resultArray.length -1)});
+    res.render('index', {items: resultArray.slice(start, resultArray.length)});
     done = true;
   }else if(done){
-    res.render('index', {items: resultArray.slice(start, resultArray.length -1), message: 'No more items in database'});
+    res.render('index', {items: resultArray.slice(start, resultArray.length), message: 'No more items in database'});
   }else{
     res.render('index', {message: 'No items in database, try loading'});
   }
