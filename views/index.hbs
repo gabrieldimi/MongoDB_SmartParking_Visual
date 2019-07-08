@@ -4,7 +4,7 @@
         <div class="cls-circle cls-spin"></div>
     </div>
 </div>
-<div id="main-body" class="container border">
+<div id="main-body" class="border ml-5 mr-5 mt-3 mb-3">
     <div class="container pb-2 pt-4">
         <nav class="navbar navbar-dark bg-dark">
             <div class="navbar-brand"> Visualization of smart parking data</div>
@@ -33,6 +33,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Spot</th>
                     <th scope="col">Plate</th>
+                    <th scopt="col">Confidence</th>
                     <th scope="col">Timestamp</th>
                     <th scope="col" class="text-center">Image</th>
                 </tr>
@@ -44,6 +45,7 @@
                         <th scope="row">{{math @index "+" 1}}</th>
                         <td class="pl-2">{{this.spot}}</td>
                         <td>{{this.text}}</td>
+                        <td>{{this.confidence}}</td>
                         <td>{{this.time_stamp}}</td>
                         <td class="text-center"><img src="{{this.image}}" class="img-thumbnail img-fluid" style="max-height:200px" alt="License plate image"></td>
                     </tr>
