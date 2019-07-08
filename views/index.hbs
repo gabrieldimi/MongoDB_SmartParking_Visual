@@ -34,7 +34,8 @@
                     <th scope="col">Spot</th>
                     <th scope="col">Plate</th>
                     <th scopt="col">Confidence</th>
-                    <th scope="col">Timestamp</th>
+                    <th scope="col">Arrival</th>
+                    <th scope="col">Departure</th>
                     <th scope="col" class="text-center">Image</th>
                 </tr>
             </thead>
@@ -46,7 +47,8 @@
                         <td class="pl-2">{{this.spot}}</td>
                         <td>{{this.text}}</td>
                         <td>{{this.confidence}}</td>
-                        <td>{{this.time_stamp}}</td>
+                        <td>{{this.arrival}}</td>
+                        <td>{{this.departure}}</td>
                         <td class="text-center"><img src="{{this.image}}" class="img-thumbnail img-fluid" style="max-height:200px" alt="License plate image"></td>
                     </tr>
                 {{/each}}
