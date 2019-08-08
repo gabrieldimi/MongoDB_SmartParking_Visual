@@ -3,7 +3,7 @@ var router = express.Router();
 var mongo = require('mongodb').MongoClient;
 var assert = require('assert');
 
-var url = 'mongodb://10.0.0.3:27017/park_system';
+var url = 'mongodb://localhost:27017/park_system';
 
 var resultArray = [];
 var start= 0;
