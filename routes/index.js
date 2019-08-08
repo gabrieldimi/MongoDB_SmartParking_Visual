@@ -1,10 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var mongo = require('mongodb').MongoClient;
-var objectId = require('mongodb').ObjectID;
 var assert = require('assert');
 
-var url = 'mongodb://10.0.0.3:27017/parkers';
+var url = 'mongodb://10.0.0.3:27017/park_system';
 
 var resultArray = [];
 var start= 0;
@@ -23,7 +22,7 @@ router.get('/get-first-five', function(req, res, next) {
     start = 0;
     end = 5;
     done = false;
-    db.collection('data').find().sort({$natural: -1})
+    db.collection('parking_data').find().sort({$natural: -1})
     .stream().on('data', function(doc){
       resultArray.push(doc);
     }).on('end', function(){
